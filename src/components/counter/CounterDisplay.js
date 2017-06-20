@@ -23,10 +23,10 @@ class CounterDisplay extends Component {
     }
     return {
       background,
-      padding: '3em',
       color: 'white',
       textAlign: 'center',
       fontWeight: '700',
+      fontSize: '3em',
     };
   }
 
