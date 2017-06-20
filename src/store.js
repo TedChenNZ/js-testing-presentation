@@ -1,4 +1,4 @@
-import { observable, computed } from 'mobx';
+import { observable, computed, action } from 'mobx';
 
 class Store {
   @observable increments = 0;
@@ -19,6 +19,18 @@ class Store {
 
   decrement(i) {
     this.decrements = this.decrements + i;
+  }
+
+  @computed get saveFile() {
+    return {
+      increments: this.increments,
+      decrements: this.decrements,
+    }
+  }
+
+  @action loadSaveFile(saveFile) {
+    this.increments = saveFile.increments;
+    this.decrements = saveFile.decrements;
   }
 }
 

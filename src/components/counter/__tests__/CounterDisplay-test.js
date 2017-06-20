@@ -54,6 +54,4 @@ describe('CounterDisplay', () => {
       expect(style).to.have.property('background').which.equals(GREEN);
     });
   })
-
-
 });

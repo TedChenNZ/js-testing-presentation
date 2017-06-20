@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import Store from '../../store';
 import CounterDisplay from './CounterDisplay';
+import CounterSave from './CounterSave';
 
 @observer
 class Counter extends Component {
@@ -24,6 +25,7 @@ class Counter extends Component {
         </button>
         <div id='increments'>increments: {Store.increments}</div>
         <div id='decrements'>decrements: {Store.decrements}</div>
+        <CounterSave />
       </div>
     );
   }
