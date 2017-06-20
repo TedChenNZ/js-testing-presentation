@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import Store from '../../store';
 import API from '../../api';
+import { Button } from 'react-toolbox/lib/button';
 
 @observer
 class CounterSave extends Component {
@@ -15,14 +16,14 @@ class CounterSave extends Component {
     });
   }
   render() {
+    const buttonStyle = {
+      color: 'white',
+      fontWeight: '700',
+    }
     return (
       <div>
-        <button id='save' onClick={this.save}>
-          Save
-        </button>
-        <button id='load' onClick={this.load}>
-          Load
-        </button>
+        <Button id='save' onClick={this.save} label='Save' style={buttonStyle} />
+        <Button id='load' onClick={this.load} label='Load' style={buttonStyle} />
       </div>
     );
   }

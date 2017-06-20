@@ -4,7 +4,7 @@ import chaiEnzyme from 'chai-enzyme'
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import CounterDisplay from '../CounterDisplay';
-import { GREEN, BLUE } from '../../../constants';
+import { PINK, BLUE } from '../../../constants';
 
 chai.use(chaiEnzyme());
 
@@ -33,20 +33,20 @@ describe('CounterDisplay', () => {
     });
   })
   describe('style', () => {
-    it('has a blue background if state is active', () => {
+    it('has a blue color if state is active', () => {
       wrapper.setState({
         active: true,
       });
       const style = wrapper.instance().style();
-      expect(style).to.have.property('background').which.equals(BLUE);
+      expect(style).to.have.property('color').which.equals(BLUE);
     });
 
-    it('has a green background if state is not active', () => {
+    it('has a pink color if state is not active', () => {
       wrapper.setState({
         active: false,
       });
       const style = wrapper.instance().style();
-      expect(style).to.have.property('background').which.equals(GREEN);
+      expect(style).to.have.property('color').which.equals(PINK);
     });
   })
 });

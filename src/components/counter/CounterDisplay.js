@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import { GREEN, BLUE } from '../../constants';
+import { PINK, BLUE } from '../../constants';
 
 @observer
 class CounterDisplay extends Component {
@@ -17,16 +17,17 @@ class CounterDisplay extends Component {
   }
 
   style() {
-    let background = GREEN;
+    let color = PINK;
     if (this.state.active) {
-      background = BLUE;
+      color = BLUE;
     }
     return {
-      background,
-      color: 'white',
+      color,
       textAlign: 'center',
       fontWeight: '700',
       fontSize: '3em',
+      userSelect: 'none',
+      cursor: 'default',
     };
   }
 

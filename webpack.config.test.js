@@ -19,15 +19,27 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', 'css']
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, 'src')
-    }]
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel'],
+        include: path.join(__dirname, 'src')
+      },
+      {
+        test: /\.s?css$/,
+        loaders: ['css?modules&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]&sourceMap', 'postcss']
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['sass']
+      },
+    ]
   },
   target: 'node',
-  externals: [nodeExternals()]
+  externals: [nodeExternals({
+    whitelist: [/react-toolbox/]
+  })]
 };
