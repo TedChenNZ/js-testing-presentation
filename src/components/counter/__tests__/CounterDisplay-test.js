@@ -25,11 +25,6 @@ describe('CounterDisplay', () => {
     });
   });
   describe('state', () => {
-    it('initial active state is false', () => {
-      expect(wrapper).to.have.state('active');
-      expect(wrapper.state('active')).is.false;
-    });
-
     it('click toggles active state', () => {
       wrapper.simulate('click');
       expect(wrapper.state('active')).is.true;

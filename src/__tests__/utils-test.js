@@ -22,6 +22,9 @@ describe('utils', () => {
         .that.includes(7)
         .and.includes(9)
         .and.does.not.include(2);
+      expect(integers)
+        .to.have.nested.property('even[2]')
+        .to.equal(6);
     });
   })
 });

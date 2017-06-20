@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
-    "test": "mocha-webpack --webpack-config webpack.config.test.js \"src/**/*-test.js\""
+    "test:stub": "mocha-webpack --webpack-config webpack.config.test.js",
+    "test": "yarn run test:stub -- 'src/**/**/*-test.js'"
   },
   "repository": {
     "type": "git",

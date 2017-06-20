@@ -11,12 +11,15 @@ chai.use(chaiEnzyme());
 
 describe('Counter', () => {
   let wrapper;
+  let fakes;
   beforeEach(() => {
     Store.reset();
     wrapper = shallow(<Counter />);
+    fakes = sinon.collection;
   });
   afterEach(() => {
     wrapper.unmount();
+    fakes.restore();
   });
   describe('render()', () => {
     it('displays increments', () => {
@@ -31,11 +34,10 @@ describe('Counter', () => {
   });
   describe('#increment', () => {
     it('calls Store.increment(1) when clicked', () => {
-      const storeSpy = sinon.stub(Store, 'increment');
+      const storeSpy = fakes.stub(Store, 'increment');
       wrapper.find('#increment').simulate('click');
       expect(storeSpy.calledOnce).to.equal(true);
       expect(Store.increment.getCall(0).args[0]).to.equal(1);
-      storeSpy.restore();
     });
   });
 });
