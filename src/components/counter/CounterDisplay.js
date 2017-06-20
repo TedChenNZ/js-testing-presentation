@@ -26,20 +26,22 @@ class CounterDisplay extends Component {
       padding: '3em',
       color: 'white',
       textAlign: 'center',
-      fontWeight: '400',
+      fontWeight: '700',
     };
   }
 
   toggleActive() {
-    this.setState({
-      active: !this.state.active
+    this.setState((state, props) => {
+      return {
+        active: !this.state.active
+      }
     });
   }
 
   render() {
     return (
       <div style={this.style()} onClick={this.toggleActive.bind(this)}>
-        <span>{this.props.count}</span>
+        <span id='count'>{this.props.count}</span>
       </div>
     );
   }

@@ -15,15 +15,15 @@ class Counter extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.increment}>
+        <button id='increment' onClick={this.increment}>
           +
         </button>
         <CounterDisplay count={Store.count} />
-        <button onClick={this.decrement}>
+        <button id='decrement' onClick={this.decrement}>
           -
         </button>
-        <div>increments: {Store.increments}</div>
-        <div>decrements: {Store.decrements}</div>
+        <div id='increments'>increments: {Store.increments}</div>
+        <div id='decrements'>decrements: {Store.decrements}</div>
       </div>
     );
   }
