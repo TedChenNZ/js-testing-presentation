@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { PINK, BLUE } from '../../constants';
 
-@observer
 class CounterDisplay extends Component {
   static propTypes = {
     count: React.PropTypes.number,
