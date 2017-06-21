@@ -26,6 +26,7 @@ describe('CounterDisplay', () => {
   });
   describe('state', () => {
     it('click toggles active state', () => {
+      expect(wrapper.state('active')).is.false;
       wrapper.simulate('click');
       expect(wrapper.state('active')).is.true;
       wrapper.simulate('click');
@@ -33,7 +34,7 @@ describe('CounterDisplay', () => {
     });
   })
   describe('style', () => {
-    it('has a blue color if state is active', () => {
+    it('returns a blue color if state is active', () => {
       wrapper.setState({
         active: true,
       });
@@ -41,7 +42,7 @@ describe('CounterDisplay', () => {
       expect(style).to.have.property('color').which.equals(BLUE);
     });
 
-    it('has a pink color if state is not active', () => {
+    it('returns a pink color if state is not active', () => {
       wrapper.setState({
         active: false,
       });
