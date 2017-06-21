@@ -1,11 +1,25 @@
-import { observable, computed, action } from 'mobx';
+import { extendObservable, action } from 'mobx';
 
 class Store {
-  @observable increments = 0;
-  @observable decrements = 0;
-
-  @computed get count() {
-    return this.increments - this.decrements;
+  constructor() {
+    extendObservable(this, {
+        increments: 0,
+        decrements: 0,
+        get count() {
+          return this.increments - this.decrements;
+        },
+        get saveFile() {
+          return {
+            increments: this.increments,
+            decrements: this.decrements,
+          }
+        },
+        loadSaveFile: action((saveFile) => {
+          console.log('asdf');
+          this.increments = saveFile.increments;
+          this.decrements = saveFile.decrements;
+        })
+    })
   }
 
   reset() {
@@ -19,18 +33,6 @@ class Store {
 
   decrement(i) {
     this.decrements = this.decrements + i;
-  }
-
-  @computed get saveFile() {
-    return {
-      increments: this.increments,
-      decrements: this.decrements,
-    }
-  }
-
-  @action loadSaveFile(saveFile) {
-    this.increments = saveFile.increments;
-    this.decrements = saveFile.decrements;
   }
 }
 

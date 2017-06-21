@@ -4,7 +4,6 @@ import Store from '../../store';
 import API from '../../api';
 import { Button } from 'react-toolbox/lib/button';
 
-@observer
 class CounterSave extends Component {
   save() {
     API.saveFile(Store.saveFile);
@@ -12,6 +11,7 @@ class CounterSave extends Component {
 
   load() {
     API.getSaveFile().then(saveFile => {
+      console.log('loadSaveFile')
       Store.loadSaveFile(saveFile);
     });
   }

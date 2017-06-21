@@ -6,8 +6,7 @@ import Store from '../../store';
 import CounterDisplay from './CounterDisplay';
 import CounterSave from './CounterSave';
 
-@observer
-class Counter extends Component {
+const Counter = observer(class Counter extends Component {
   increment() {
     Store.increment(1);
   }
@@ -31,6 +30,6 @@ class Counter extends Component {
       </Card>
     );
   }
-};
+});
 
 export default Counter;
