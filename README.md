@@ -1,20 +1,33 @@
-mobx-react-boilerplate
+js-testing-presentation
 =====================
-
-A minimal application that combines [MobX](https://mobxjs.github.io/mobx) with [React](https://facebook.github.io/react).
-Supports ES6 and JSX compilation through babel.
-
-* For a more sophisticated project to start with, see the full TodoMVC implementation: [mobx-react-todomvc](https://github.com/mobxjs/mobx-react-todomvc).
 
 ### Run the example
 
 ```
-npm install
-npm start
+yarn install
+yarn run start
 open http://localhost:3000
 ```
 
+### Run the tests
+```
+yarn run test
+```
+
+or to run a subset of tests
+
+```
+yarn run test:stub src/**/**/CounterSave-test.js
+```
+
+### Testing libraries
+
+* Framework - https://mochajs.org/
+* Assertions - http://chaijs.com/api/
+* Spies, Stubs, and Mocks - http://sinonjs.org/
+* React Testing Utilities - https://github.com/airbnb/enzyme
+* Enzyme Assertions - https://github.com/producthunt/chai-enzyme
 
 ### Credits
 
-* [Mendix](http://github.com/mendix) for providing the opportunity to battle test this approach (we're hiring!).
+Based on the boilerplate from https://github.com/mobxjs/mobx-react-boilerplate
