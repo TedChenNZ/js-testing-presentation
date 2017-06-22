@@ -14,6 +14,7 @@ export function delay(s = 3000) {
   return new Promise(resolve => setTimeout(resolve, s));
 }
 
+
 describe('CounterSave', () => {
   let wrapper;
   let fakes;
@@ -52,11 +53,8 @@ describe('CounterSave', () => {
         decrements: 3,
       };
       const apiStub =  fakes.stub(API, 'getSaveFile').returns(Promise.resolve(saveFile));
-      const storeSpy = fakes.stub(Store, 'loadSaveFile');
       return wrapper.instance().load().then(() => {
-        // expect(apiStub.calledOnce).to.be.true;
-        expect(storeSpy.calledOnce).to.be.true;
-        // expect(Store.saveFile).to.deep.equal(saveFile);
+        expect(Store.saveFile).to.deep.equal(saveFile);
       });
 
     });

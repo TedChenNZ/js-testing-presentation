@@ -15,7 +15,6 @@ class Store {
           }
         },
         loadSaveFile: action((saveFile) => {
-          console.log('asdf');
           this.increments = saveFile.increments;
           this.decrements = saveFile.decrements;
         })
