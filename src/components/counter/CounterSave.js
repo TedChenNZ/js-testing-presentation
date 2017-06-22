@@ -11,7 +11,7 @@ class CounterSave extends Component {
   }
 
   load() {
-    API.getSaveFile().then(saveFile => {
+    return API.getSaveFile().then(saveFile => {
       Store.loadSaveFile(saveFile);
     });
   }

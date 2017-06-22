@@ -33,18 +33,27 @@ describe('CounterSave', () => {
     });
   });
 
-  describe('#load', () => {
-    it('loads the saveFile from API.saveFile() when clicked', (done) => {
+  describe('load', () => {
+    it('#load calls load()', () => {
+      wrapper.unmount();
+      const loadStub = fakes.stub(CounterSave.prototype, 'load').returns(true); // we need to spy or stub on a method in a component before we mount it
+      wrapper = shallow(<CounterSave />);
+      wrapper.find('#load').simulate('click');
+      expect(loadStub.calledOnce).to.be.true;
+    });
+
+    it('loads the saveFile from API.saveFile() when clicked', () => {
       const saveFile = {
         increments: 6,
         decrements: 3,
       };
-      const apiStub = fakes.stub(API, 'getSaveFile').returns(Promise.resolve(saveFile).then(done()));
+      const apiStub =  fakes.stub(API, 'getSaveFile').returns(Promise.resolve(saveFile));
       const storeSpy = fakes.stub(Store, 'loadSaveFile');
-      wrapper.find('#load').simulate('click');
-      expect(apiStub.calledOnce).to.be.true;
-      expect(storeSpy.calledOnce).to.be.true;
-      expect(Store.saveFile).to.deep.equal(saveFile);
+      return wrapper.instance().load().then(() => {
+        expect(apiStub.calledOnce).to.be.true;
+        expect(storeSpy.calledOnce).to.be.true;
+      });
+
     });
   });
 });
