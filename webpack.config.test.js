@@ -25,6 +25,11 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
+        include: path.join(__dirname, 'src'),
+        loader: 'istanbul-instrumenter-loader'
+      },
+      {
+        test: /\.jsx?$/,
         loaders: ['babel'],
         include: path.join(__dirname, 'src')
       },

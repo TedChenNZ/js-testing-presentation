@@ -6,7 +6,9 @@
     "start": "node server.js",
     "lint": "eslint src",
     "test:stub": "mocha-webpack --webpack-config webpack.config.test.js",
-    "test": "yarn run test:stub -- 'src/**/**/*-test.js'"
+    "test": "yarn run test:stub -- 'src/**/**/*-test.js'",
+    "test:coverage": "mocha-webpack --webpack-config webpack.config.test.js \"src/**/**/*.js\" --exit true",
+    "coverage": "cross-env NODE_ENV=coverage nyc --reporter=lcov --reporter=text yarn run test:coverage"
   },
   "repository": {
     "type": "git",
@@ -33,12 +35,15 @@
     "babel-preset-stage-1": "^6.5.0",
     "chai": "^4.0.2",
     "chai-enzyme": "^0.7.1",
+    "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
     "enzyme": "^2.8.2",
     "eslint": "^2.13.1",
     "eslint-plugin-react": "^5.1.1",
+    "istanbul-instrumenter-loader": "^2.0.0",
     "mocha": "^3.4.2",
     "mocha-webpack": "^0.7.0",
+    "nyc": "^11.0.2",
     "postcss-cssnext": "^2.11.0",
     "postcss-each": "^0.10.0",
     "postcss-import": "^10.0.0",
