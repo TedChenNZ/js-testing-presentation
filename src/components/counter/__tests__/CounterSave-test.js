@@ -1,7 +1,7 @@
 import React from 'react';
 import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme'
-import { expect } from 'chai';
+import { expect as chaiExpect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import CounterSave from '../CounterSave';
@@ -33,8 +33,8 @@ describe('CounterSave', () => {
       Store.decrements = 2;
       const apiSpy = fakes.stub(API, 'saveFile');
       wrapper.find('#save').simulate('click');
-      expect(apiSpy.calledOnce).to.be.true;
-      expect(API.saveFile.getCall(0).args[0]).to.deep.equal(Store.saveFile);
+      chaiExpect(apiSpy.calledOnce).to.be.true;
+      chaiExpect(API.saveFile.getCall(0).args[0]).to.deep.equal(Store.saveFile);
     });
   });
 
@@ -44,7 +44,7 @@ describe('CounterSave', () => {
       const loadStub = fakes.stub(CounterSave.prototype, 'load').returns(true); // we need to spy or stub on a method in a component before we mount it
       wrapper = shallow(<CounterSave />);
       wrapper.find('#load').simulate('click');
-      expect(loadStub.calledOnce).to.be.true;
+      chaiExpect(loadStub.calledOnce).to.be.true;
     });
 
     it('loads the saveFile from API.saveFile() when clicked',  () => {
@@ -53,8 +53,9 @@ describe('CounterSave', () => {
         decrements: 3,
       };
       const apiStub =  fakes.stub(API, 'getSaveFile').returns(Promise.resolve(saveFile));
+      const storeSpy = jest.spyOn(Store, 'loadSaveFile');
       return wrapper.instance().load().then(() => {
-        expect(Store.saveFile).to.deep.equal(saveFile);
+        expect(storeSpy).toHaveBeenCalled();
       });
 
     });
