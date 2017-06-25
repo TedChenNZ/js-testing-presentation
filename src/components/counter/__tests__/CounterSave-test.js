@@ -33,7 +33,7 @@ describe('CounterSave', () => {
     });
   });
 
-  describe('load', () => {
+  describe('load functionality', () => {
     it('#load calls load()', () => {
       wrapper.unmount();
       const loadStub = fakes.stub(CounterSave.prototype, 'load').returns(true); // we need to spy or stub on a method in a component before we mount it
@@ -42,7 +42,7 @@ describe('CounterSave', () => {
       expect(loadStub.calledOnce).to.be.true;
     });
 
-    it('loads the saveFile from API.saveFile() when clicked', () => {
+    it('load() calls Store.loadSaveFile using the saveFile from API.saveFile()', () => {
       const saveFile = {
         increments: 6,
         decrements: 3,

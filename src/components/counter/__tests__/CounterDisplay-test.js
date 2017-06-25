@@ -16,8 +16,8 @@ describe('CounterDisplay', () => {
   afterEach(() => {
     wrapper.unmount();
   });
-  describe('render', () => {
-    it('displays count', () => {
+  describe('render()', () => {
+    it('displays count from props', () => {
       wrapper.setProps({
         count: 1
       });
@@ -33,7 +33,7 @@ describe('CounterDisplay', () => {
       expect(wrapper.state('active')).is.false;
     });
   })
-  describe('style', () => {
+  describe('style()', () => {
     it('returns a blue color if state is active', () => {
       wrapper.setState({
         active: true,
