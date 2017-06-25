@@ -22,7 +22,7 @@ yarn run test:stub src/**/**/CounterSave-test.js
 
 ### Testing libraries
 
-* Framework - https://mochajs.org/
+* Framework (and also test runner) - https://mochajs.org/
 * Assertions - http://chaijs.com/api/
 * Spies, Stubs, and Mocks - http://sinonjs.org/
 * React Testing Utilities - https://github.com/airbnb/enzyme
