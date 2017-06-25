@@ -27,6 +27,7 @@ yarn run test:stub src/**/**/CounterSave-test.js
 * Spies, Stubs, and Mocks - http://sinonjs.org/
 * React Testing Utilities - https://github.com/airbnb/enzyme
 * Enzyme Assertions - https://github.com/producthunt/chai-enzyme
+* Coverage - https://github.com/istanbuljs/istanbuljs (and its cli - https://github.com/istanbuljs/nyc)
 
 ### Credits
 
