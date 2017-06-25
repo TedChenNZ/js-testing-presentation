@@ -7,12 +7,18 @@
     "lint": "eslint src",
     "test:stub": "mocha-webpack --webpack-config webpack.config.test.js",
     "test": "yarn run test:stub -- 'src/**/**/*-test.js'",
-    "test:coverage": "mocha-webpack --webpack-config webpack.config.test.js \"src/**/**/*.js\" --exit true",
+    "test:coverage": "mocha-webpack --webpack-config webpack.config.test.js 'src/!(index)**/*.js' --exit true",
     "coverage": "cross-env NODE_ENV=coverage nyc --reporter=lcov --reporter=text yarn run test:coverage"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/mobxjs/mobx-react-boilerplate.git"
+  },
+  "nyc": {
+    "exclude": [
+      ".tmp",
+      "webpack.config.test.js"
+    ]
   },
   "keywords": [
     "react",
