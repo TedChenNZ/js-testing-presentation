@@ -13,7 +13,9 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/static/',
+    devtoolModuleFilenameTemplate: '[absolute-resource-path]',
+    devtoolFallbackModuleFilenameTemplate: '[absolute-resource-path]?[hash]'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
@@ -46,5 +48,6 @@ module.exports = {
   target: 'node',
   externals: [nodeExternals({
     whitelist: [/react-toolbox/]
-  })]
+  })],
+  devtool: 'inline-cheap-module-source-map'
 };
