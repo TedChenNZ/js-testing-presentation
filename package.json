@@ -7,6 +7,7 @@
     "lint": "eslint src",
     "test:stub": "mocha-webpack --webpack-config webpack.config.test.js",
     "test": "yarn run test:stub -- 'src/**/**/*-test.js'",
+    "test:watch": "yarn run test:stub -- 'src/**/**/*-test.js' --watch",
     "test:coverage": "mocha-webpack --webpack-config webpack.config.test.js 'src/!(index)**/*.js' --exit true",
     "coverage": "cross-env NODE_ENV=coverage nyc --reporter=lcov --reporter=text yarn run test:coverage",
     "coverage:check": "cross-env NODE_ENV=coverage nyc --check-coverage --lines 95 --reporter=lcov --reporter=text yarn run test:coverage"
