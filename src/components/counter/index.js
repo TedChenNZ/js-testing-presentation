@@ -14,7 +14,9 @@ class CounterContainer extends Component {
             <CounterSave />
           </Navigation>
         </AppBar>
-        <Counter />
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+          <Counter />
+        </div>
       </div>
     );
   }
