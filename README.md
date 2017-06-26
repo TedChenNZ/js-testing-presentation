@@ -20,9 +20,14 @@ or to run a subset of tests
 yarn run test:stub src/**/**/CounterSave-test.js
 ```
 
+or to run tests on changes
+```
+yarn run test:watch
+```
+
 ### Testing libraries
 
-* Framework (and also test runner) - https://mochajs.org/
+* Framework (and also test runner) - https://mochajs.org/ (library for webpack compatability - https://www.npmjs.com/package/mocha-webpack)
 * Assertions - http://chaijs.com/api/
 * Spies, Stubs, and Mocks - http://sinonjs.org/
 * React Testing Utilities - https://github.com/airbnb/enzyme
