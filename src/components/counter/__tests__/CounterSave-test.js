@@ -49,7 +49,7 @@ describe('CounterSave', () => {
       };
       const apiStub =  fakes.stub(API, 'getSaveFile').returns(Promise.resolve(saveFile));
       const storeSpy = fakes.stub(Store, 'loadSaveFile');
-      return wrapper.instance().load().then(() => {
+      return wrapper.instance().load().then(() => { // for testing async Promises you need to return the promise for mocha to pick it up
         expect(apiStub.calledOnce).to.be.true;
         expect(storeSpy.calledOnce).to.be.true;
       });
